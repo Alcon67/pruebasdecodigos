@@ -9,19 +9,17 @@
         * {margin: 0; padding: 0; box-sizing: border-box;}
         body {font-family: 'Montserrat', sans-serif; background: #b1853e; color: #333; line-height: 1.7;}
         
-        header {background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; text-align: center; padding: 50px 20px;}
+        header {background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; text-align: center; padding: 20px 20px;}
         header h1 {font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 10px;}
         header p {font-size: 1.2rem; color: #ffd700;}
         
         .container {max-width: 1200px; margin: 0 auto; padding: 25px;}
-        
-        .intro {background: white; padding: 35px; border-radius: 18px; margin: 25px 0; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.1);}
-        .intro h2 {color: #1e3c72; margin-bottom: 15px;}
-        
+       
         .categoria-section {background: white; margin: 25px 0; padding: 30px; border-radius: 18px; box-shadow: 0 8px 25px rgba(0,0,0,0.1);}
         .categoria-section h3 {color: #1e3c72; border-bottom: 3px solid #ffd700; padding-bottom: 12px; margin-bottom: 20px; font-size: 1.6rem;}
         
-        .estudio-item {padding: 20px; margin: 15px 0; background: #f0f7ff; border-radius: 12px; border-left: 4px solid #ffd700; transition: 0.3s;}
+        .estudio-item {padding: 12px; margin-bottom: 20px; /* Separación entre estudios */ background: #fff7ff; border-radius: 12px; border-left: 4px solid #ffd700; transition: 0.3s;}
+
         .estudio-item:hover {background: #e6f2ff; box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
         
         .estudio-header {display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;}
@@ -35,7 +33,7 @@
         .btn-imagen {border: none; background: none; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; border-radius: 8px; overflow: hidden;}
         .btn-imagen:hover {transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.2);}
         .btn-imagen img {display: block; width: 32px; height: auto; border-radius: 8px;}
-        
+       
         .btn-volver {background: #ffd700; color: #1e3c72; margin: 30px auto; display: block; width: fit-content; font-size: 1.2rem; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s;}
         .btn-volver:hover {background: #1e3c72; color: white; transform: scale(1.05);}
         
@@ -52,12 +50,25 @@
         
         .modal-body {padding: 30px; display: flex; gap: 25px; flex-wrap: wrap;}
         
-        .portada-container {flex: 0 0 250px; text-align: center;}
+        .portada-container {flex: 0 0 350px; text-align: center;}
         .portada-container img {width: 100%; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.2);}
         
         .descripcion-container {flex: 1; min-width: 300px;}
-        .descripcion-container p {font-size: 1.05rem; line-height: 1.8; color: #333; text-align: justify;}
-        
+
+        .descripcion-container p {
+            font-size: 1.05rem; 
+            line-height: 1.8; 
+            color: #333; 
+            text-align: justify;
+            margin-bottom: 15px; /* Espacio entre párrafos */
+        }
+
+        /* Primer párrafo más destacado */
+        .descripcion-container {
+            font-weight: 600;
+            color: #1e3c72;
+        }
+
         .modal-footer {padding: 20px 30px; background: #f8f9fa; border-radius: 0 0 20px 20px; text-align: center;}
         .modal-footer p {color: #1e3c72; font-weight: 600; font-size: 1.1rem;}
         
@@ -76,16 +87,11 @@
 </head>
 <body>
     <header>
-        <h1>📖 Estudios Bíblicos</h1>
-        <p>Temas Básicos Cristianos</p>
+        <h1>Estudios Bíblicos</h1>
         <p style="font-size: 1rem; margin-top: 10px;">Pastor Antonio Gabriel Guardia</p>
     </header>
 
     <div class="container">
-        <div class="intro">
-            <h2>28 Estudios de Temas Básicos Cristianos</h2>
-            <p>Cada estudio incluye: 📖 Presentación | 🖨️ Versión para Imprimir (fondo blanco) | 📱 Versión Digital (fondo color)</p>
-        </div>
 
         <!-- TEMAS BÁSICOS CRISTIANOS - 28 Estudios Bíblicos -->
         <div class="categoria-section" id="cat-doctrina">
@@ -117,7 +123,709 @@
                 </div>
             </div>
 
-            <!-- Aquí agregarás los otros 27 estudios con la misma estructura -->
+            <!-- ESTUDIO 02 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 03 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 04 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 05 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 06 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 07 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 08 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 09 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 10 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 11 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 12 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 13 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 14 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 15 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 16 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 17 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 18 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 19 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 20 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 21 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 22 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 23 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 24 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 25 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 26 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 27 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 28 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>XXX</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+           
             
         </div>
 
@@ -136,7 +844,8 @@
                     <img id="modalPortada" src="" alt="Portada del Estudio">
                 </div>
                 <div class="descripcion-container">
-                    <p id="modalDescripcion"></p>
+                    <div id="modalDescripcion"></div>  <!-- Cambiar <p> por <div> -->
+                    <!-- <p id="modalDescripcion"></p> -->
                 </div>
             </div>
             <div class="modal-footer">
@@ -151,23 +860,42 @@
             '01': {
                 titulo: '01 - Qué es ser Cristiano',
                 portada: 'img/TBC - 01.png', // La portada del estudio
-                descripcion: `El mundo actual se mueve bajo conceptos relativos y múltiples imágenes de Dios, pero la Escritura nos recuerda que existe una verdad absoluta: Jesucristo es Dios. Ser cristiano significa reconocer y aceptar esta verdad, confesando que Jesús es el Señor y creyendo que murió y resucitó para justificarnos.
-Este estudio nos conduce a comprender que la fe genuina no se basa en tradiciones humanas ni en religiones, sino en una relación viva con Cristo y en la confianza plena en las Escrituras como Palabra de Dios. A través del nuevo nacimiento, el hombre experimenta la transformación espiritual que lo lleva a dejar atrás sus conceptos erróneos acerca de Dios y de sí mismo, reconociendo su condición de pecador y recibiendo el perdón y la vida nueva que sólo Cristo puede dar.
-Aquí se nos muestra que la salvación no depende de obras humanas, sino de la gracia gratuita de Dios manifestada en Jesucristo. Ser cristiano, entonces, es vivir bajo la dirección del Señor, obedeciendo su Palabra y caminando en la verdad que Él mismo reveló.`
+                descripcion: [
+                    'El mundo actual se mueve bajo conceptos relativos y múltiples imágenes de Dios, pero la Escritura nos recuerda que existe una verdad absoluta: Jesucristo es Dios. Ser cristiano significa reconocer y aceptar esta verdad, confesando que Jesús es el Señor y creyendo que murió y resucitó para justificarnos.',
+                    
+                    'Este estudio nos conduce a comprender que la fe genuina no se basa en tradiciones humanas ni en religiones, sino en una relación viva con Cristo y en la confianza plena en las Escrituras como La Palabra de Dios.',
+                    
+                    'Aquí se nos muestra que la salvación no depende de obras humanas, sino de la gracia gratuita de Dios manifestada en Jesucristo.'
+                ]
+
+                // Aquí agregarás los datos de los otros 27 estudios
+
+
             }
-            // Aquí agregarás los datos de los otros 27 estudios
         };
+
+        // Actualiza la función abrirModal:
 
         function abrirModal(estudioId) {
             const estudio = estudios[estudioId];
             if (estudio) {
                 document.getElementById('modalTitulo').textContent = estudio.titulo;
                 document.getElementById('modalPortada').src = estudio.portada;
-                document.getElementById('modalDescripcion').textContent = estudio.descripcion;
+                
+                // Crear párrafos separados
+                const contenedorDescripcion = document.getElementById('modalDescripcion');
+                contenedorDescripcion.innerHTML = ''; // Limpiar contenido anterior
+                
+                estudio.descripcion.forEach(parrafo => {
+                    const p = document.createElement('p');
+                    p.textContent = parrafo;
+                    contenedorDescripcion.appendChild(p);
+                });
+                
                 document.getElementById('modalPresentacion').style.display = 'block';
-                document.body.style.overflow = 'hidden'; // Evitar scroll del body
+                document.body.style.overflow = 'hidden';
             }
-        }
+        }        
 
         function cerrarModal() {
             document.getElementById('modalPresentacion').style.display = 'none';
