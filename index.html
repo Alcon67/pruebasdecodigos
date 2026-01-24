@@ -38,22 +38,82 @@
         .btn-volver:hover {background: #1e3c72; color: white; transform: scale(1.05);}
         
         /* MODAL DE PRESENTACIÓN */
-        .modal {display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); animation: fadeIn 0.3s;}
-        
-        .modal-content {background: white; margin: 3% auto; padding: 0; border-radius: 20px; max-width: 900px; width: 90%; box-shadow: 0 15px 50px rgba(0,0,0,0.3); animation: slideIn 0.3s;}
-        
-        .modal-header {background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 25px 30px; border-radius: 20px 20px 0 0; display: flex; justify-content: space-between; align-items: center;}
-        .modal-header h2 {font-family: 'Playfair Display', serif; font-size: 1.8rem;}
-        
-        .close {color: white; font-size: 35px; font-weight: bold; cursor: pointer; transition: 0.3s;}
-        .close:hover {color: #ffd700; transform: scale(1.2);}
-        
-        .modal-body {padding: 30px; display: flex; gap: 25px; flex-wrap: wrap;}
-        
-        .portada-container {flex: 0 0 350px; text-align: center;}
-        .portada-container img {width: 100%; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.2);}
-        
-        .descripcion-container {flex: 1; min-width: 300px;}
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.8); 
+            animation: fadeIn 0.3s;
+        }
+
+        .modal-content {
+            background: white; 
+            margin: 3% auto; 
+            padding: 0; 
+            border-radius: 20px; 
+            max-width: 900px; 
+            width: 90%; 
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3); 
+            animation: slideIn 0.3s;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298); 
+            color: white; 
+            padding: 5px 25px;  /* ⭐ REDUCIDO */
+            border-radius: 20px 20px 0 0; 
+            display: flex; 
+            justify-content: flex-end;  /* ⭐ X a la derecha */
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            display: none;  /* ⭐ OCULTO */
+        }
+
+        .close {
+            color: white; 
+            font-size: 35px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            transition: 0.3s;
+        }
+
+        .close:hover {
+            color: #ffd700; 
+            transform: scale(1.2);
+        }
+
+        .modal-body {
+            padding: 30px; 
+            display: flex; 
+            gap: 25px; 
+            flex-wrap: wrap;
+            background: #dcc072;  /* ⭐ FONDO SUAVE */
+            /* border-radius: 0 0 20px 20px;  /* ⭐ Redondear esquinas inferiores */
+        }
+
+        .portada-container {
+            flex: 0 0 350px; 
+            text-align: center;
+        }
+
+        .portada-container img {
+            width: 100%; 
+            border-radius: 12px; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .descripcion-container {
+            flex: 1; 
+            min-width: 300px;
+            font-weight: 600;
+        }
 
         .descripcion-container p {
             font-size: 1.05rem; 
@@ -63,14 +123,20 @@
             margin-bottom: 15px; /* Espacio entre párrafos */
         }
 
-        /* Primer párrafo más destacado */
-        .descripcion-container {
-            font-weight: 600;
-            color: #1e3c72;
+        .modal-footer {
+            padding: 20px 30px; 
+            background: #e8e4dc;  /* ⭐ Fondo footer más oscuro que el body */
+            border-radius: 0 0 20px 20px; 
+            text-align: center;
         }
 
-        .modal-footer {padding: 20px 30px; background: #f8f9fa; border-radius: 0 0 20px 20px; text-align: center;}
-        .modal-footer p {color: #1e3c72; font-weight: 600; font-size: 1.1rem;}
+        .modal-footer p {
+            color: #1e3c72; 
+            font-weight: 600; 
+            font-size: 1.1rem;
+        }
+
+
         
         @keyframes fadeIn {from {opacity: 0;} to {opacity: 1;}}
         @keyframes slideIn {from {transform: translateY(-50px); opacity: 0;} to {transform: translateY(0); opacity: 1;}}
@@ -858,7 +924,7 @@
         // Datos de los estudios (portadas y descripciones)
         const estudios = {
             '01': {
-                titulo: '01 - Qué es ser Cristiano',
+                //titulo: '01 - Qué es ser Cristiano',
                 portada: 'img/TBC - 01.png', // La portada del estudio
                 descripcion: [
                     'El mundo actual se mueve bajo conceptos relativos y múltiples imágenes de Dios, pero la Escritura nos recuerda que existe una verdad absoluta: Jesucristo es Dios. Ser cristiano significa reconocer y aceptar esta verdad, confesando que Jesús es el Señor y creyendo que murió y resucitó para justificarnos.',
