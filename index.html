@@ -16,8 +16,8 @@
         .container {max-width: 1200px; margin: 0 auto; padding: 25px;}
        
         .categoria-section {background: white; margin: 25px 0; padding: 30px; border-radius: 18px; box-shadow: 0 8px 25px rgba(0,0,0,0.1);}
-        .categoria-section h3 {color: #1e3c72; border-bottom: 3px solid #ffd700; padding-bottom: 12px; margin-bottom: 20px; font-size: 1.6rem;}
-        
+        .categoria-section h3 {color: #1e3c72; border-bottom: 3px solid #ffd700; padding-bottom: 12px; margin-bottom: 20px; font-size: 1.6rem; text-align: center;}
+       
         .estudio-item {padding: 12px; margin-bottom: 20px; /* Separación entre estudios */ background: #fff7ff; border-radius: 12px; border-left: 4px solid #ffd700; transition: 0.3s;}
 
         .estudio-item:hover {background: #e6f2ff; box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
@@ -35,7 +35,32 @@
         .btn-imagen img {display: block; width: 32px; height: auto; border-radius: 8px;}
        
         .btn-volver {background: #ffd700; color: #1e3c72; margin: 30px auto; display: block; width: fit-content; font-size: 1.2rem; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s;}
+
+        .btn-volver-imagen {
+            display: inline-block;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .btn-volver-imagen:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-volver-imagen img {
+            display: block;
+            height: 45px;  /* Ajusta este tamaño según tu imagen */
+            width: auto;
+            border-radius: 8px;
+        }
+
+
+
+
         .btn-volver:hover {background: #1e3c72; color: white; transform: scale(1.05);}
+
         
         /* MODAL DE PRESENTACIÓN */
         .modal {
@@ -161,7 +186,7 @@
 
         <!-- TEMAS BÁSICOS CRISTIANOS - 28 Estudios Bíblicos -->
         <div class="categoria-section" id="cat-doctrina">
-            <h3>📚 TEMAS BÁSICOS CRISTIANOS (28 Estudios)</h3>
+            <h3>TEMAS BÁSICOS CRISTIANOS</h3>
             
             <!-- ESTUDIO 01 -->
             <div class="estudio-item">
@@ -171,6 +196,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -197,6 +227,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('02')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -223,6 +258,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('03')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -249,6 +289,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('04')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -275,6 +320,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('05')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -301,6 +351,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('06')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -327,6 +382,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('07')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -353,6 +413,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('08')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -379,6 +444,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('09')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -405,6 +475,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('10')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -431,6 +506,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('11')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -457,6 +537,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('12')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -483,6 +568,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('13')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -509,6 +599,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('14')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -535,6 +630,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('15')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -561,6 +661,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('16')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -587,6 +692,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('17')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -613,6 +723,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('18')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -639,6 +754,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('19')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -665,6 +785,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('20')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -691,6 +816,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('21')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -717,6 +847,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('22')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -743,6 +878,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('23')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -769,6 +909,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('24')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -795,6 +940,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('25')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -821,6 +971,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('26')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -847,6 +1002,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('27')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -873,6 +1033,11 @@
                     </div>
                     
                     <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/Rfoznh9gXU8NYkycA" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
                         <!-- Botón Ver Presentación -->
                         <button class="btn-imagen" onclick="abrirModal('28')" title="Ver Presentación del Estudio">
                             <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
@@ -895,7 +1060,12 @@
             
         </div>
 
-        <a href="index.html" class="btn btn-volver">⬅️ Volver a la página principal</a>
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="index.html" class="btn-volver-imagen" title="Volver a la Página Principal">
+                <img src="img/Regresar.png" alt="Volver a la Página Principal">
+            </a>
+        </div>
+
     </div>
 
     <!-- MODAL DE PRESENTACIÓN -->
