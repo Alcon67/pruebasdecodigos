@@ -38,8 +38,8 @@
 
         .volver-container {
             position: fixed;  /* ⭐ Hacerlo flotante */
-            top: 20px;        /* ⭐ Posición desde arriba */
-            left: 20px;       /* ⭐ Posición desde la izquierda */
+            top: 15px;        /* ⭐ Posición desde arriba */
+            left: 15px;       /* ⭐ Posición desde la izquierda */
             z-index: 1000;    /* ⭐ Mantenerlo por encima de otros elementos */
         }
 
@@ -59,7 +59,7 @@
 
         .btn-volver-imagen img {
             display: block;
-            height: 50px;     /* ⭐ Ajusta este valor para cambiar el tamaño */
+            height: 40px;     /* ⭐ Ajusta este valor para cambiar el tamaño */
             width: auto;
             border-radius: 8px;
         }
@@ -181,6 +181,14 @@
             .btn-imagen img {width: 32px;}
             .modal-body {flex-direction: column;}
             .portada-container {flex: 1; margin: 0 auto;}
+            .volver-container {
+                top: 10px;
+                left: 10px;
+            }
+            
+            .btn-volver-imagen img {
+                height: 30px;  /* Más pequeño en móviles */
+            }            
         }
     </style>
 </head>
