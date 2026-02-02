@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudios Bíblicos LFE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        body {font-family: 'Montserrat', sans-serif; background: #b1853e; color: #333; line-height: 1.7;}
+        
+        header {background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; text-align: center; padding: 20px 20px;}
+        header h1 {font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 10px;}
+        header p {font-size: 1.2rem; color: #ffd700;}
+        
+        .container {max-width: 1200px; margin: 0 auto; padding: 5px 25px 5px 25px;}
+       
+        .categoria-section {background: white; margin: 25px 0; padding: 30px; border-radius: 18px; box-shadow: 0 8px 25px rgba(0,0,0,0.1);}
+        .categoria-section h3 {color: #1e3c72; border-bottom: 3px solid #ffd700; padding-bottom: 12px; margin-bottom: 20px; font-size: 1.6rem; text-align: center;}
+       
+        .estudio-item {padding: 12px; margin-bottom: 20px; /* Separación entre estudios */ background: #fff7ff; border-radius: 12px; border-left: 4px solid #ffd700; transition: 0.3s;}
+
+        .estudio-item:hover {background: #e6f2ff; box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
+        
+        .estudio-header {display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;}
+        
+        .estudio-info {flex: 1; min-width: 250px;}
+        .estudio-info h4 {color: #1e3c72; margin-bottom: 8px; font-size: 1.2rem;}
+        .estudio-info p {color: #666; font-size: 0.95rem; line-height: 1.5;}
+        
+        .botones-container {display: flex; gap: 10px; flex-wrap: wrap;}
+        
+        .btn-imagen {border: none; background: none; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; border-radius: 8px; overflow: hidden;}
+        .btn-imagen:hover {transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.2);}
+        .btn-imagen img {display: block; width: 32px; height: auto; border-radius: 8px;}
+       
+        .btn-volver {background: #ffd700; color: #1e3c72; margin: 30px auto; display: block; width: fit-content; font-size: 1.2rem; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s;}
+
+        .volver-container {
+            position: fixed;  /* ⭐ Hacerlo flotante */
+            top: 15px;        /* ⭐ Posición desde arriba */
+            left: 15px;       /* ⭐ Posición desde la izquierda */
+            z-index: 1000;    /* ⭐ Mantenerlo por encima de otros elementos */
+        }
+
+        .btn-volver-imagen {
+            display: inline-block;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);  /* ⭐ Sombra para destacar */
+        }
+
+        .btn-volver-imagen:hover {
+            transform: scale(1.1);  /* ⭐ Cambio: scale en lugar de translateY */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        .btn-volver-imagen img {
+            display: block;
+            height: 40px;     /* ⭐ Ajusta este valor para cambiar el tamaño */
+            width: auto;
+            border-radius: 8px;
+        }
+
+
+
+
+        .btn-volver:hover {background: #1e3c72; color: white; transform: scale(1.05);}
+
+        
+        /* MODAL DE PRESENTACIÓN */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.8); 
+            animation: fadeIn 0.3s;
+        }
+
+        .modal-content {
+            background: white; 
+            margin: 3% auto; 
+            padding: 0; 
+            border-radius: 20px; 
+            max-width: 900px; 
+            width: 90%; 
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3); 
+            animation: slideIn 0.3s;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298); 
+            color: white; 
+            padding: 5px 25px;  /* ⭐ REDUCIDO */
+            border-radius: 20px 20px 0 0; 
+            display: flex; 
+            justify-content: flex-end;  /* ⭐ X a la derecha */
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            display: none;  /* ⭐ OCULTO */
+        }
+
+        .close {
+            color: white; 
+            font-size: 35px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            transition: 0.3s;
+        }
+
+        .close:hover {
+            color: #ffd700; 
+            transform: scale(1.2);
+        }
+
+        .modal-body {
+            padding: 30px; 
+            display: flex; 
+            gap: 25px; 
+            flex-wrap: wrap;
+            background: #dcc072;  /* ⭐ FONDO SUAVE */
+            /* border-radius: 0 0 20px 20px;  /* ⭐ Redondear esquinas inferiores */
+        }
+
+        .portada-container {
+            flex: 0 0 350px; 
+            text-align: center;
+        }
+
+        .portada-container img {
+            width: 100%; 
+            border-radius: 12px; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .descripcion-container {
+            flex: 1; 
+            min-width: 300px;
+            font-weight: 600;
+        }
+
+        .descripcion-container p {
+            font-size: 1.05rem; 
+            line-height: 1.8; 
+            color: #333; 
+            text-align: justify;
+            margin-bottom: 15px; /* Espacio entre párrafos */
+        }
+
+        .modal-footer {
+            padding: 20px 30px; 
+            background: #e8e4dc;  /* ⭐ Fondo footer más oscuro que el body */
+            border-radius: 0 0 20px 20px; 
+            text-align: center;
+        }
+
+        .modal-footer p {
+            color: #1e3c72; 
+            font-weight: 600; 
+            font-size: 1.1rem;
+        }
+
+
+        
+        @keyframes fadeIn {from {opacity: 0;} to {opacity: 1;}}
+        @keyframes slideIn {from {transform: translateY(-50px); opacity: 0;} to {transform: translateY(0); opacity: 1;}}
+        
+        @media (max-width: 768px) {
+            header h1 {font-size: 2rem;}
+            .estudio-header {flex-direction: column; align-items: flex-start;}
+            .botones-container {width: 100%; justify-content: center;}
+            .btn-imagen img {width: 32px;}
+            .modal-body {flex-direction: column;}
+            .portada-container {flex: 1; margin: 0 auto;}
+            .volver-container {
+                top: 10px;
+                left: 7px;
+            }
+            
+            .btn-volver-imagen img {
+                height: 30px;  /* Más pequeño en móviles */
+            }            
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Estudios Bíblicos</h1>
+        <p style="font-size: 1rem; margin-top: 10px;">Pastor Antonio Gabriel Guardia</p>
+    </header>
+
+    <!-- ⭐ EL BOTÓN FLOTANTE VA AQUÍ -->
+    <div class="volver-container">
+        <a href="index.html" class="btn-volver-imagen" title="Volver a la Página Principal">
+            <img src="img/Regresar.png" alt="Volver a la Página Principal">
+        </a>
+    </div>
+
+    <div class="container">
+
+        <!-- TEMAS BÁSICOS CRISTIANOS - 28 Estudios Bíblicos -->
+        <div class="categoria-section" id="cat-doctrina">
+            <h3>LA FE</h3>
+            
+            <!-- ESTUDIO 01 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>01 - Viviendo por fe - La vida cristiana sólo puede vivirse por fe</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/snvPmtPgk1EpD99g9" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('01')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="https://drive.google.com/file/d/1D-sTMY84igI66Df_8yOOKFTAEuTkQLej/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="https://drive.google.com/file/d/1XwhDiBhhKHnxXEnnwQaCckc3vKOqMMEi/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 02 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>02 - Viviendo por fe - Quién tiene la culpa</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/snvPmtPgk1EpD99g9" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('02')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="https://drive.google.com/file/d/1s2jFtHTF9oeRg5KXu80xGRTIDqARWnOU/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="https://drive.google.com/file/d/1inTzwQM0ChP6md55AfZCrXRAb07Rf9s_/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 03 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>03 - Viviendo por fe - No hay disculpa</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/snvPmtPgk1EpD99g9" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('03')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="https://drive.google.com/file/d/15RSTBh9OYQqIW0F5mfqMH1Vl4B3SP6N4/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="https://drive.google.com/file/d/1YkdqsqXCuHzAzt4LhMIqVbuxDAIqb-_Y/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 04 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>04 - Diferentes clases de Fe</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/snvPmtPgk1EpD99g9" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('04')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="https://drive.google.com/file/d/1S3qQvRC-SrQ0m4oUc_wEJAbJmzyP_WtH/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="https://drive.google.com/file/d/1rCZhYCG-sOpIPkDoTWHxkVshznawNa-0/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 05 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>05 - La Fe y la Bendición de Dios</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/snvPmtPgk1EpD99g9" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('05')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="https://drive.google.com/file/d/1F3U8r2FTJ1a7HvS_uuNQZQhbh8x0YgKd/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="https://drive.google.com/file/d/1POaunc2-2qtoZcyfkL0LTAlOi-Lf7kON/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 06 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>06 - LA FE - El Poder, El Mérito, La Certeza</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/snvPmtPgk1EpD99g9" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('06')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="https://drive.google.com/file/d/1amg3Oeks3LUGMiKdCTsoO5-nd-Q6p0is/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="https://drive.google.com/file/d/14lbp5gaxuvsGaBrsRp3miGteEZHe9Xq_/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 07 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>07 - LA FE - De lo que se espera</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/snvPmtPgk1EpD99g9" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('07')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="https://drive.google.com/file/d/1Vj4Pn57CMJ3IgiQyaWTxFzli_NBXNAFS/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="https://drive.google.com/file/d/1p7aSPeQYyomf5HpnTgGL2qKlUUOi7ey5/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 08 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>08 - LA FE - Lo ofrecido por Dios siempre es mejor</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/snvPmtPgk1EpD99g9" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('08')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="https://drive.google.com/file/d/1Z64OncpCO4dUjEkLYESSwd97V-UxUqHK/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="https://drive.google.com/file/d/1ZxoKw5Z-O1lDVUif7ko5Ote-nLB0wlWT/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 09 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>09 - LA FE - La convicción de lo que no se ve</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/snvPmtPgk1EpD99g9" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('09')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="https://drive.google.com/file/d/1MaISPvdemh6PhDq0xEQG1NduIv1lUAIF/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="https://drive.google.com/file/d/1Ijr_PlK4x5mwObZRvlxe5BSLT4nZfrwE/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 10 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>10 - LA FE - Por ella alcanzaron buen testimonio</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/snvPmtPgk1EpD99g9" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('10')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="https://drive.google.com/file/d/1tHyBTK01QhbZigpQmqiAjGMbyTsfRCVm/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="https://drive.google.com/file/d/11rGaDX5EaRumgEw7R5NW5poBGTCkvmiW/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 11 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>11 - LA FE - Sin Fe es imposible agradar a Dios</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/snvPmtPgk1EpD99g9" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('11')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="https://drive.google.com/file/d/1PhYbE_-RxQTTCG76QgpiavTocCLC2_6d/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="https://drive.google.com/file/d/14od7Oe2NwWpmYTfdjjT_4Rdk_Tv6BX2e/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 12 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>12 - LA FE - Dejando lo que se tiene</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/snvPmtPgk1EpD99g9" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('12')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="https://drive.google.com/file/d/19YEUigpFiSLU3iWyFwArgEU2cXoFS-YB/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="https://drive.google.com/file/d/1_bo-U1nqeNiDMzUoKD-A-Dnif9Ogu_GS/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESTUDIO 13 -->
+            <div class="estudio-item">
+                <div class="estudio-header">
+                    <div class="estudio-info">
+                        <h4>13 - LA FE - Dejando lo más valioso</h4>
+                    </div>
+                    
+                    <div class="botones-container">
+                        <!-- Botón Formulario para compartir reflexión o comentario sobre este estudio -->
+                        <a href="https://forms.gle/snvPmtPgk1EpD99g9" target="_blank" class="btn-imagen" title="Compartir reflexión o comentario sobre este estudio">
+                            <img src="img/Enviar-Comentario.png" alt="Enviar Comentario">
+                        </a>
+
+                        <!-- Botón Ver Presentación -->
+                        <button class="btn-imagen" onclick="abrirModal('13')" title="Ver Presentación del Estudio">
+                            <img src="img/Presentacion-de-Estudio.png" alt="Ver Presentación">
+                        </button>
+                        
+                        <!-- Botón Descargar Fondo Blanco -->
+                        <a href="https://drive.google.com/file/d/1Gx2YovD3Z5KmidKa2YpCGNXTqkCR2ei7/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                            <img src="img/Descarga-PDF-FB.png" alt="PDF Fondo Blanco">
+                        </a>
+                        
+                        <!-- Botón Descargar Fondo Color -->
+                        <a href="https://drive.google.com/file/d/19gg5CF-ReK8gUY94BKdMRMa3Pwx906Rx/view?usp=sharing" target="_blank" class="btn-imagen" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                            <img src="img/Descarga-PDF-FC.png" alt="PDF Fondo Color">
+                        </a>
+                    </div>
+                </div>
+            </div>
+           
+            
+        </div>
+
+
+    </div>
+
+    <!-- MODAL DE PRESENTACIÓN -->
+    <div id="modalPresentacion" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitulo">Presentación del Estudio</h2>
+                <span class="close" onclick="cerrarModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="portada-container">
+                    <img id="modalPortada" src="" alt="Portada del Estudio">
+                </div>
+                <div class="descripcion-container">
+                    <div id="modalDescripcion"></div>  <!-- Cambiar <p> por <div> -->
+                    <!-- <p id="modalDescripcion"></p> -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <p>💡 Usa los botones de descarga para obtener el PDF completo</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Datos de los estudios (portadas y descripciones)
+        const estudios = {
+            '01': {
+                //titulo: '01 - Qué es ser Cristiano',
+                portada: 'img/LFE - 01.png', // La portada del estudio
+                descripcion: [
+                    '',
+                    '',
+                    ''
+                ]
+            },
+
+           '02': {
+                //titulo: '02 - El Nuevo Nacimiento',
+                portada: 'img/LFE - 02.png', // La portada del estudio
+                descripcion: [
+                    '',
+                    '',
+                    ''
+                ]
+            },
+
+           '03': {
+                //titulo: '03 - Equipados para la batalla',
+                portada: 'img/LFE - 03.png', // La portada del estudio
+                descripcion: [
+                    '',
+                    '',
+                    ''
+                ]
+            },
+
+           '04': {
+                //titulo: '04 - La Oración - Aprendiendo a comunicarnos con Dios',
+                portada: 'img/LFE - 04.png', // La portada del estudio
+                descripcion: [
+                    '',
+                    '',
+                    ''
+                ]
+            },
+
+           '05': {
+                //titulo: '05 - El Perdón de Pecados',
+                portada: 'img/LFE - 05.png', // La portada del estudio
+                descripcion: [
+                    '',
+                    '',
+                    ''
+                ]
+            },
+
+           '06': {
+                //titulo: '06 - Como entender y reconocer la voluntad de Dios',
+                portada: 'img/LFE - 06.png', // La portada del estudio
+                descripcion: [
+                    '',
+                    '',
+                    ''
+                ]
+            },
+
+           '07': {
+                //titulo: '07 - La Respuesta Sobrenatural de Dios',
+                portada: 'img/LFE - 07.png', // La portada del estudio
+                descripcion: [
+                    '',
+                    '',
+                    ''
+                ]
+            },
+
+           '08': {
+                //titulo: '08 - El Secreto de la Felicidad',
+                portada: 'img/LFE - 08.png', // La portada del estudio
+                descripcion: [
+                    '',
+                    '',
+                    ''
+                ]
+            },
+
+           '09': {
+                //titulo: '09 - La Obediencia',
+                portada: 'img/LFE - 09.png', // La portada del estudio
+                descripcion: [
+                    '',
+                    '',
+                    ''
+                ]
+            },
+
+           '10': {
+                //titulo: '10 - La Verdadera Gracia de Dios',
+                portada: 'img/LFE - 10.png', // La portada del estudio
+                descripcion: [
+                    '',
+                    '',
+                    ''
+                ]
+            },
+
+           '11': {
+                //titulo: '11 - La Soberanía de Dios',
+                portada: 'img/LFE - 11.png', // La portada del estudio
+                descripcion: [
+                    '',
+                    '',
+                    ''
+                ]
+            },
+
+           '12': {
+                //titulo: '12 - Cómo acercarnos a Dios',
+                portada: 'img/LFE - 12.png', // La portada del estudio
+                descripcion: [
+                    '',
+                    '',
+                    ''
+                ]
+            },
+
+           '13': {
+                //titulo: '13 - Una nueva manera de pensar',
+                portada: 'img/LFE - 13.png', // La portada del estudio
+                descripcion: [
+                    '',
+                    '',
+                    ''
+                ]
+            },
+
+
+        };
+
+        // Actualiza la función abrirModal:
+
+        function abrirModal(estudioId) {
+            const estudio = estudios[estudioId];
+            if (estudio) {
+                document.getElementById('modalTitulo').textContent = estudio.titulo;
+                document.getElementById('modalPortada').src = estudio.portada;
+                
+                // Crear párrafos separados
+                const contenedorDescripcion = document.getElementById('modalDescripcion');
+                contenedorDescripcion.innerHTML = ''; // Limpiar contenido anterior
+                
+                estudio.descripcion.forEach(parrafo => {
+                    const p = document.createElement('p');
+                    p.textContent = parrafo;
+                    contenedorDescripcion.appendChild(p);
+                });
+                
+                document.getElementById('modalPresentacion').style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }        
+
+        function cerrarModal() {
+            document.getElementById('modalPresentacion').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restaurar scroll
+        }
+
+        // Cerrar modal al hacer clic fuera de él
+        window.onclick = function(event) {
+            const modal = document.getElementById('modalPresentacion');
+            if (event.target == modal) {
+                cerrarModal();
+            }
+        }
+
+        // Cerrar modal con tecla ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                cerrarModal();
+            }
+        });
+    </script>
+</body>
+</html>
+
