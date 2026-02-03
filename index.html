@@ -11,7 +11,7 @@
     <style>
         *{margin:0;padding:0;box-sizing:border-box;}
         body{font-family:'Montserrat',sans-serif;background:#b1853e;color:#333;line-height:1.7;}
-        header{background:linear-gradient(135deg,#1e3c72,#2a5298);color:white;text-align:center;padding:70px 20px 50px;}
+        header{background:linear-gradient(135deg,#1e3c72,#2a5298);color:rgb(255, 255, 255);text-align:center;padding:70px 20px 50px;}
         header img {width:300px;height:300px;object-fit:cover;border-radius:50%;border:8px solid white;box-shadow:0 20px 40px rgba(0,0,0,0.3); margin-bottom:15px;}
         header h1 {margin:20px 0 8px;font-family:'Playfair Display',serif;font-size:2.9rem;}
 
@@ -31,12 +31,76 @@
             line-height:1.5;
         }
         .container{max-width:1100px;margin:0 auto;padding:25px;}
-        section{background:white;margin:35px 0;padding:35px;border-radius:18px;box-shadow:0 8px 25px rgba(0,0,0,0.1);}
-        h2{color:#1e3c72;border-bottom:4px solid #ffd700;padding-bottom:12px;margin-bottom:25px;font-size:1.8rem;}
-        .grid-libros{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;}
-        .libro-card{text-align:center;background:#f0f7ff;padding:20px;border-radius:15px;transition:0.3s;}
-        .libro-card:hover{transform:translateY(-8px);box-shadow:0 12px 25px rgba(0,0,0,0.15);}
-        .libro-card img{width:100%;height:340px;object-fit:contain;border-radius:10px;background:white;padding:10px;}
+        section{background:rgb(220, 235, 140);margin:35px 0;padding:35px;border-radius:18px;box-shadow:0 8px 25px rgba(0,0,0,0.1);} /*background:rgb(220, 235, 140) Color de fondo Contenedor de Libros, Estudios y Contacto */
+        h2{color:#1e3c72;border-bottom:4px solid #ffd700;padding-bottom:12px;margin-bottom:25px;font-size:1.8rem; text-align:center;}
+        h3{text-align:center;}
+        
+        /* GRID DE LIBROS ACTUALIZADO */
+        .grid-libros{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+            gap:30px;
+        }
+        
+        .libro-card{
+            text-align:center;
+            background:rgb(220, 235, 140); /*background:rgb(220, 235, 140) Color de fondo Contenedor de Libros (background:#f0f7ff;) */
+            padding:5px;
+            border-radius:15px;
+            transition:0.3s;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+        }
+        
+        .libro-card:hover{
+            transform:translateY(-8px);
+            box-shadow:0 12px 25px rgba(0,0,0,0.15);
+        }
+        
+        .libro-card img{
+            width:100%;
+            height:420px; /* AUMENTADO de 340px a 420px */
+            object-fit:contain;
+            border-radius:10px;
+            background:rgb(220, 235, 140); /*background:rgb(220, 235, 140) Color de fondo Contenedor imagen de Libros (background:white;) */
+            padding:10px;
+            margin-bottom:15px;
+        }
+        
+        .libro-card p{
+            margin-bottom:15px;
+            font-size:1rem;
+            line-height:1.5;
+        }
+        
+        /* CONTENEDOR DE BOTONES */
+        
+        .botones-descarga{
+            display:flex;
+            gap:10px;
+            justify-content:center;
+            flex-wrap:wrap;
+            margin-top:10px;
+        }
+        
+        
+
+        
+
+        .botones-descarga a img{
+            width:auto;
+            height:50px; /* Altura del botón imagen */
+            cursor:pointer;
+            transition:transform 0.3s;
+            padding:0;
+            background:transparent;
+        }
+        
+        .botones-descarga a img:hover{
+            transform:scale(1.1);
+        }
+
         .btn{display:inline-block;background:#1e3c72;color:white;padding:14px 32px;border-radius:50px;text-decoration:none;font-weight:600;margin:12px 6px;transition:0.3s;}
         .btn:hover{background:#ffd700;color:#1e3c72;transform:scale(1.07);}
         .btn-whatsapp{background:#25D366;}
@@ -48,59 +112,7 @@
         .logo-final{width:100%;max-width:650px;margin:30px auto;display:block;}
         footer{text-align:center;padding:40px;background:#1e3c72;color:white;font-size:1.1rem;}
 
-        /* ESTILOS PARA ESTUDIOS BÍBLICOS */
-        .grid-estudios{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;margin-top:30px;}
-        .estudio-grupo-card{
-            background:#f0f7ff;
-            padding:30px;
-            border-radius:15px;
-            border-left:6px solid #ffd700;
-            transition:0.3s;
-            display:flex;
-            flex-direction:column;
-            height:100%;
-        }
-        .estudio-grupo-card:hover{
-            transform:translateY(-8px);
-            box-shadow:0 12px 25px rgba(0,0,0,0.15);
-            border-left-color:#1e3c72;
-        }
-        .grupo-emoji{
-            font-size:3.5rem;
-            margin-bottom:15px;
-            text-align:center;
-        }
-        .grupo-titulo{
-            font-size:1.4rem;
-            font-weight:700;
-            color:#1e3c72;
-            margin-bottom:12px;
-            text-align:center;
-            font-family:'Playfair Display',serif;
-        }
-        .grupo-badge{
-            display:inline-block;
-            background:#ffd700;
-            color:#1e3c72;
-            padding:5px 15px;
-            border-radius:20px;
-            font-size:0.9rem;
-            font-weight:600;
-            margin-bottom:15px;
-            text-align:center;
-        }
-        .grupo-descripcion{
-            font-size:1rem;
-            color:#555;
-            line-height:1.6;
-            margin-bottom:20px;
-            text-align:justify;
-            flex-grow:1;
-        }
-
-        /* ============================================== */
         /* ESTILOS PARA ESTUDIOS BÍBLICOS CON IMAGEN DE FONDO */
-        /* ============================================== */
         .grid-estudios{
             display:grid;
             grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -109,19 +121,19 @@
         }
         
         .estudio-grupo-card{
-            /* La imagen de fondo se define con style="background-image:url('...')" en cada tarjeta del HTML */
-            background-size:contain; /* CAMBIADO: 'contain' muestra la imagen completa */
-            background-position:top center; /* CAMBIADO: alinea la imagen arriba y centrada */
+            background-size:cover;
+            background-position:top center;
             background-repeat:no-repeat;
+            background-color:#f0f7ff;
             border-radius:15px;
             transition:0.3s;
             display:flex;
             flex-direction:column;
-            justify-content:flex-end; /* Empuja el botón hacia abajo */
-            aspect-ratio: 0.7; /* NUEVO: Mantiene proporción aproximada 1:1.43 (ancho:alto) */
+            justify-content:flex-end;
+            aspect-ratio: 0.7;
             width:100%;
             position:relative;
-            overflow:visible; /* CAMBIADO: permite que el botón se vea */
+            overflow:hidden;
             box-shadow:0 8px 25px rgba(0,0,0,0.15);
         }
         
@@ -130,12 +142,11 @@
             box-shadow:0 15px 35px rgba(0,0,0,0.25);
         }
 
-        /* Contenedor del botón flotante en la parte inferior */
         .btn-ir-grupo{
             display:block;
             text-align:center;
-            padding:15px;
-            background:transparent; /* CAMBIADO: sin fondo para que se vea como flotante */
+            padding:5px 15px;
+            background:transparent;
             border-radius:0;
             margin:0;
             position:relative;
@@ -143,15 +154,15 @@
         }
         
         .btn-ir-grupo img{
-            width:60px; /* Un poco más grande para que se vea mejor */
-            height:60px;
+            width:50px;
+            height:50px;
             transition:transform 0.3s;
             cursor:pointer;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); /* Sombra para destacar */
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
         }
 
         .btn-ir-grupo img:hover{
-            transform:scale(1.1);
+            transform:scale(1.2);
         }
 
         @media (max-width:768px){
@@ -159,11 +170,15 @@
             header p.versiculo{font-size:1.25rem;}
             .grid-libros{grid-template-columns:1fr;}
             .grid-estudios{grid-template-columns:1fr;}
+            .libro-card img{height:380px;} /* Ajuste para móviles */
             .estudio-grupo-card{
-                aspect-ratio: 0.7; /* Mantiene la misma proporción en móviles */
+                aspect-ratio: 0.7;
+            }
+            .btn-ir-grupo{
+                padding:5px 15px;
             }
             .btn-ir-grupo img{
-                width:50px; /* Botón un poco más pequeño en móviles */
+                width:50px;
                 height:50px;
             }
         }
@@ -223,7 +238,6 @@
     gtag('js', new Date());
     gtag('config', 'G-9GZVBYMZ8R');
     </script>
-    <!-- Fin Google Analytics -->
 </head>
 
 <body>
@@ -248,37 +262,69 @@
 <div class="container">
     <!-- LIBROS -->
     <section id="libros">
-        <h2>Mis Libros Cristianos – Descarga Gratuita</h2>
+        <h2>Mis Libros Cristianos</h2>
+        <h3>Descarga Gratuita</h3>
         <div class="grid-libros">
+
+            <!-- LA PASIÓN - CON DOS BOTONES -->
             <div class="libro-card">
-                <img src="img/P_La_Pasión.png" alt="La Pasión color">
-                <p><strong>La Pasión, Resurrección y Ascensión de Cristo</strong><br>(versión color)</p>
-                <a href="https://drive.google.com/file/d/1zb2IuJ3ZRSvVr3MBnR_8sJ_vhJekc1Y1/view?usp=sharing" target="_blank" class="btn">Descargar PDF</a>
+                <img src="img/P_La_Pasión.png" alt="La Pasión">
+                <p><strong>La Pasión, Resurrección y Ascensión de Cristo</strong></p>
+                <div class="botones-descarga">
+                    <!-- Botón Descargar Fondo Color -->
+                    <a href="https://drive.google.com/file/d/1zb2IuJ3ZRSvVr3MBnR_8sJ_vhJekc1Y1/view?usp=sharing" target="_blank" title="Descargar PDF Fondo Color (Para Leer en Pantalla)">
+                        <img src="img/Descarga-PDF-FC.png" alt="Descargar versión color">
+                    </a>
+
+                    <!-- Botón Descargar Fondo Blanco -->
+                    <a href="https://drive.google.com/file/d/1BNcQjY3FXy19-PRA1YLYUszhcX3WTlA5/view?usp=sharing" target="_blank" title="Descargar PDF Fondo Blanco (Para Imprimir)">
+                        <img src="img/Descarga-PDF-FB.png" alt="Descargar fondo blanco">
+                    </a>
+                </div>
             </div>
-            <div class="libro-card">
-                <img src="img/P_La_Pasión.png" alt="La Pasión B&N">
-                <p><strong>La Pasión, Resurrección y Ascensión de Cristo</strong><br>(fondo blanco – ideal para imprimir)</p>
-                <a href="https://drive.google.com/file/d/1BNcQjY3FXy19-PRA1YLYUszhcX3WTlA5/view?usp=sharing" target="_blank" class="btn">Descargar PDF</a>
-            </div>
+
+            <!-- MANUAL DE DISCIPULADO BÁSICO -->
             <div class="libro-card">
                 <img src="img/P_Manual_de_Discipulado_Básico.png" alt="Discipulado Básico">
                 <p><strong>Manual de Discipulado Básico</strong></p>
-                <a href="https://drive.google.com/file/d/13bfLA471FYpvM49qMLGvS0HMgW0AGbMM/view?usp=sharing" target="_blank" class="btn">Descargar PDF</a>
+                <div class="botones-descarga">
+                    <a href="https://drive.google.com/file/d/13bfLA471FYpvM49qMLGvS0HMgW0AGbMM/view?usp=sharing" target="_blank">
+                        <img src="img/Descarga-PDF-FB.png" alt="Descargar PDF">
+                    </a>
+                </div>
             </div>
+
+            <!-- MANUAL DE HERMENÉUTICA BÍBLICA -->
             <div class="libro-card">
                 <img src="img/P_Manual_de_Hermenéutica_Bíblica.png" alt="Hermenéutica">
-                <p><strong>Manual de Hermenéutica Bíblica [3º Ed.]</strong></p>
-                <a href="https://drive.google.com/file/d/1C8FXfgz4Dtgg6C4UnEgj8xTjZo_W72sJ/view?usp=sharing" target="_blank" class="btn">Descargar PDF</a>
+                <p><strong>Manual de Hermenéutica Bíblica</strong></p>
+                <div class="botones-descarga">
+                    <a href="https://drive.google.com/file/d/1C8FXfgz4Dtgg6C4UnEgj8xTjZo_W72sJ/view?usp=sharing" target="_blank">
+                        <img src="img/Descarga-PDF-FB.png" alt="Descargar PDF">
+                    </a>
+                </div>
             </div>
+
+            <!-- MANUAL DEL PROFESOR DE HERMENÉUTICA -->
             <div class="libro-card">
                 <img src="img/P_Manual_del_Profesor_de_Hermenéutica_Bíblica.png" alt="Prof. Hermenéutica">
                 <p><strong>Manual del Profesor de Hermenéutica Bíblica</strong></p>
-                <a href="https://drive.google.com/file/d/1jT-fGFJl3t1Z55WKP3pJHT0CHAbLNBu8/view?usp=sharing" target="_blank" class="btn">Descargar PDF</a>
+                <div class="botones-descarga">
+                    <a href="https://drive.google.com/file/d/1jT-fGFJl3t1Z55WKP3pJHT0CHAbLNBu8/view?usp=sharing" target="_blank">
+                        <img src="img/Descarga-PDF-FB.png" alt="Descargar PDF">
+                    </a>
+                </div>
             </div>
+
+            <!-- MANUAL DE RESUMEN BÍBLICO -->
             <div class="libro-card">
                 <img src="img/P_Manual_de_Resumen_Bíblico.png" alt="Resumen Bíblico">
                 <p><strong>Manual de Resumen Bíblico de los 66 libros de la Biblia y anexos</strong></p>
-                <a href="https://drive.google.com/file/d/14_BB8Tl6C2mtlM7g1PFoK_5HqkImGuqs/view?usp=sharing" target="_blank" class="btn">Descargar PDF</a>
+                <div class="botones-descarga">
+                    <a href="https://drive.google.com/file/d/14_BB8Tl6C2mtlM7g1PFoK_5HqkImGuqs/view?usp=sharing" target="_blank">
+                        <img src="img/Descarga-PDF-FB.png" alt="Descargar PDF">
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -287,67 +333,39 @@
     <section id="estudios">
         <h2>Estudios Bíblicos Cristianos</h2>
         <p style="text-align:center;font-size:1.2rem;margin-bottom:20px;">
-            Explora los estudios bíblicos organizados por temas. Cada grupo contiene estudios profundos y prácticos para crecer en la fe.
+            <h3>Explora los estudios bíblicos organizados por temas. Cada grupo contiene estudios profundos y prácticos para crecer en la fe y la vida cristiana que Dios quiere.</h3>
         </p>
 
-        <!-- REEMPLZAR POR NUEVAS PRESENTACIONES DE GRUPOS EN IMAGENES -->
-
         <div class="grid-estudios">
-            <!-- ================================================ -->
             <!-- GRUPO 1: TEMAS BÁSICOS CRISTIANOS -->
-            <!-- ================================================ -->
-            <!-- 
-                INSTRUCCIONES: Reemplaza "NOMBRE_DE_TU_IMAGEN_1.png" con el nombre real de tu archivo PNG
-                Ejemplo: style="background-image:url('img/grupo1_temas_basicos.png')"
-            -->
             <div class="estudio-grupo-card" style="background-image:url('img/Grupo_01.png')">
                 <a href="01_temas_basicos_cristianos.html" class="btn-ir-grupo">
                     <img src="img/ir_al_grupo.png" alt="Ir al grupo de estudios">
                 </a>
             </div>
 
-            <!-- ================================================ -->
             <!-- GRUPO 2: LA FE -->
-            <!-- ================================================ -->
-            <!-- 
-                INSTRUCCIONES: Reemplaza "NOMBRE_DE_TU_IMAGEN_2.png" con el nombre real de tu archivo PNG
-            -->
             <div class="estudio-grupo-card" style="background-image:url('img/Grupo_02.png')">
                 <a href="02_la_fe.html" class="btn-ir-grupo">
                     <img src="img/ir_al_grupo.png" alt="Ir al grupo de estudios">
                 </a>
             </div>
 
-            <!-- ================================================ -->
             <!-- GRUPO 3: EL NUEVO PACTO -->
-            <!-- ================================================ -->
-            <!-- 
-                INSTRUCCIONES: Reemplaza "NOMBRE_DE_TU_IMAGEN_3.png" con el nombre real de tu archivo PNG
-            -->
             <div class="estudio-grupo-card" style="background-image:url('img/Grupo_03.png')">
                 <a href="03_el_nuevo_pacto.html" class="btn-ir-grupo">
                     <img src="img/ir_al_grupo.png" alt="Ir al grupo de estudios">
                 </a>
             </div>
 
-            <!-- ================================================ -->
             <!-- GRUPO 4: ENTENDIENDO LA SANA DOCTRINA -->
-            <!-- ================================================ -->
-            <!-- 
-                INSTRUCCIONES: Reemplaza "NOMBRE_DE_TU_IMAGEN_4.png" con el nombre real de tu archivo PNG
-            -->
             <div class="estudio-grupo-card" style="background-image:url('img/Grupo_04.png')">
                 <a href="04_entendiendola_sana_doctrina.html" class="btn-ir-grupo">
                     <img src="img/ir_al_grupo.png" alt="Ir al grupo de estudios">
                 </a>
             </div>
 
-            <!-- ================================================ -->
             <!-- GRUPO 5: REVISIÓN DE ENSEÑANZAS -->
-            <!-- ================================================ -->
-            <!-- 
-                INSTRUCCIONES: Reemplaza "NOMBRE_DE_TU_IMAGEN_5.png" con el nombre real de tu archivo PNG
-            -->
             <div class="estudio-grupo-card" style="background-image:url('img/Grupo_05.png')">
                 <a href="05_revision_de_enseñanzas.html" class="btn-ir-grupo">
                     <img src="img/ir_al_grupo.png" alt="Ir al grupo de estudios">
