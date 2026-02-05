@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estudios Bíblicos RDE</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="img/MiniLogo.jpg" type="image/png">
+    
     <style>
         * {margin: 0; padding: 0; box-sizing: border-box;}
         body {font-family: 'Montserrat', sans-serif; background: #b1853e; color: #333; line-height: 1.7;}
@@ -15,7 +18,7 @@
         
         .container {max-width: 1200px; margin: 0 auto; padding: 5px 25px 5px 25px;}
        
-        .categoria-section {background: white; margin: 25px 0; padding: 30px; border-radius: 18px; box-shadow: 0 8px 25px rgba(0,0,0,0.1);}
+        .categoria-section {background: rgb(250, 250, 250); margin: 25px 0; padding: 30px; border-radius: 18px; box-shadow: 0 8px 25px rgba(0,0,0,0.1);}
         .categoria-section h3 {color: #1e3c72; border-bottom: 3px solid #ffd700; padding-bottom: 12px; margin-bottom: 20px; font-size: 1.6rem; text-align: center;}
        
         .estudio-item {padding: 12px; margin-bottom: 20px; /* Separación entre estudios */ background: #fff7ff; border-radius: 12px; border-left: 4px solid #ffd700; transition: 0.3s;}
@@ -63,9 +66,6 @@
             width: auto;
             border-radius: 8px;
         }
-
-
-
 
         .btn-volver:hover {background: #1e3c72; color: white; transform: scale(1.05);}
 
@@ -168,7 +168,6 @@
             font-weight: 600; 
             font-size: 1.1rem;
         }
-
 
         
         @keyframes fadeIn {from {opacity: 0;} to {opacity: 1;}}
@@ -368,9 +367,7 @@
             </div>
 
            
-            
         </div>
-
 
     </div>
 
@@ -400,55 +397,54 @@
         // Datos de los estudios (portadas y descripciones)
         const estudios = {
             '01': {
-                //titulo: '01 - Qué es ser Cristiano',
+                //titulo: '01 - Doctrina de la Prosperidad Material',
                 portada: 'img/RDE - 01.png', // La portada del estudio
                 descripcion: [
-                    '',
-                    '',
-                    ''
+                    'La llamada “prosperidad material” promete riquezas como señal de bendición, pero en realidad distorsiona el Evangelio y esclaviza el corazón. Jesús nunca invitó a seguirle para obtener dinero, sino para recibir vida eterna.',
+                    'Este estudio revela cómo la avaricia y el deseo de enriquecerse conducen al engaño y a la perdición, mientras que el verdadero ejemplo de Cristo es despojo, entrega y obediencia. La Escritura enseña que el amor al dinero es raíz de todos los males y que la verdadera riqueza está en participar de la naturaleza divina.',
+                    'Aquí descubrimos que buscar a Dios por interés económico es perder lo más valioso: su presencia y su salvación. La invitación es clara: rechazar el falso evangelio de la prosperidad y abrazar el tesoro eterno en Cristo.'
                 ]
             },
 
            '02': {
-                //titulo: '02 - El Nuevo Nacimiento',
+                //titulo: '02 - El Poder de La Palabra Hablada',
                 portada: 'img/RDE - 02.png', // La portada del estudio
                 descripcion: [
-                    '',
-                    '',
-                    ''
+                    'Las palabras no son simples sonidos: tienen poder para edificar o destruir, para acercarnos a Dios o alejarnos de Él.',
+                    'Este estudio nos muestra que el verdadero poder no está en declaraciones humanas mágicas, sino en la Palabra de Dios pronunciada y respaldada por su voluntad. Cuando los hombres presumen hablar lo que Dios no ha dicho, caen en pecado y engaño; pero cuando somos fieles mensajeros, la voz de Dios se cumple con autoridad y verdad.',
+                    'Aquí descubrimos que nuestras palabras revelan nuestro corazón y que ser “la boca de Dios” implica responsabilidad y reverencia. La invitación es clara: abandonar la soberbia de hablar por nosotros mismos y rendir nuestra voz al Señor, para comunicar solo lo que Él manda.'
                 ]
             },
 
            '03': {
-                //titulo: '03 - Equipados para la batalla',
+                //titulo: '03 - Las Maldiciones',
                 portada: 'img/RDE - 03.png', // La portada del estudio
                 descripcion: [
-                    '',
-                    '',
-                    ''
+                    'Las maldiciones han sido un tema rodeado de temor y confusión, especialmente la idea de “maldiciones generacionales”. Este estudio revela que tal concepto no aparece en la Escritura y que ningún pasaje obliga a los hijos a pecar por los errores de sus padres.',
+                    'La Biblia muestra que cada persona responde por su propia actitud hacia Dios: quienes le aborrecen reciben disciplina, y quienes le aman reciben misericordia. Creer en maldiciones heredadas es negar la obra completa de Cristo en la cruz y quitar responsabilidad al pecador.',
+                    'Aquí descubrimos que los cristianos estamos protegidos en el Nuevo Pacto y que la verdadera libertad está en confesar nuestros pecados y vivir en obediencia. La invitación es clara: dejar el engaño y abrazar la victoria de Cristo sobre toda maldición.'
                 ]
             },
 
            '04': {
-                //titulo: '04 - La Oración - Aprendiendo a comunicarnos con Dios',
+                //titulo: '04 - Expulsión de Demonios en los Creyentes',
                 portada: 'img/RDE - 04.png', // La portada del estudio
                 descripcion: [
-                    '',
-                    '',
-                    ''
+                    'La obra de Cristo en la cruz fue completa: nos libró de la potestad de las tinieblas y nos trasladó al reino de su Hijo amado. Este estudio aclara una confusión muy extendida: los verdaderos creyentes, nacidos de nuevo, no pueden estar poseídos por demonios.',
+                    'Jesús dio autoridad para expulsar espíritus en los incrédulos, abriendo el camino para que reciban salvación, pero quienes ya tienen al Espíritu Santo morando en ellos son templos del Dios viviente y el maligno no puede tocarlos.',
+                    'Aquí descubrimos que la verdadera liberación no es un ritual repetido, sino el nuevo nacimiento en Cristo. La invitación es clara: confiar en la victoria de Jesús, vivir en libertad y ejercer la autoridad que Él nos dio para anunciar el Evangelio.'
                 ]
             },
 
            '05': {
-                //titulo: '05 - El Perdón de Pecados',
+                //titulo: '05 - Matrimonio, Divorcio y Nuevo Matrimonio',
                 portada: 'img/RDE - 05.png', // La portada del estudio
                 descripcion: [
-                    '',
-                    '',
-                    ''
+                    'El matrimonio es una institución diseñada por Dios, pero hoy está siendo atacada y distorsionada por el mundo y, lamentablemente, también por muchas iglesias. Este estudio nos recuerda que desde el principio el plan divino fue claro: un hombre y una mujer unidos en fidelidad para toda la vida.',
+                    'Las doctrinas humanas que justifican el pecado han debilitado esta verdad, generando confusión y permisividad. Aquí descubrimos que cambiar la enseñanza bíblica para acomodar deseos carnales no honra a Dios, sino que abre la puerta a la apostasía.',
+                    'La invitación es clara: volver a la Palabra, discernir entre lo santo y lo profano, y vivir el matrimonio como un pacto sagrado que refleja la fidelidad de Cristo a su iglesia.'
                 ]
             },
-
 
 
         };
@@ -498,4 +494,3 @@
     </script>
 </body>
 </html>
-
