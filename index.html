@@ -31,7 +31,7 @@
             line-height:1.5;
         }
         .container{max-width:1100px;margin:0 auto;padding:25px;}
-        section{background:rgb(255, 255, 255);margin:35px 0;padding:35px;border-radius:18px;box-shadow:0 8px 25px rgba(0,0,0,0.1);} /*background:rgb(220, 235, 140) Color de fondo Contenedor de Libros, Estudios y Contacto */
+        section{background:rgb(255, 255, 255);margin:35px 0;padding:35px;border-radius:18px;box-shadow:0 8px 25px rgba(0,0,0,0.1);}
         h2{color:#1e3c72;border-bottom:4px solid #ffd700;padding-bottom:12px;margin-bottom:25px;font-size:1.8rem; text-align:center;}
         h3{text-align:center;}
         
@@ -44,7 +44,7 @@
         
         .libro-card{
             text-align:center;
-            background:rgb(255, 255, 255); /*background:rgb(220, 235, 140) Color de fondo Contenedor de Libros (background:#f0f7ff;) */
+            background:rgb(255, 255, 255);
             padding:5px;
             border-radius:15px;
             transition:0.3s;
@@ -60,10 +60,10 @@
         
         .libro-card img{
             width:100%;
-            height:420px; /* AUMENTADO de 340px a 420px */
+            height:420px;
             object-fit:contain;
             border-radius:10px;
-            background:rgb(255, 255, 255); /*background:rgb(220, 235, 140) Color de fondo Contenedor imagen de Libros (background:white;) */
+            background:rgb(255, 255, 255);
             padding:10px;
             margin-bottom:15px;
         }
@@ -75,7 +75,6 @@
         }
         
         /* CONTENEDOR DE BOTONES */
-        
         .botones-descarga{
             display:flex;
             gap:10px;
@@ -83,14 +82,10 @@
             flex-wrap:wrap;
             margin-top:10px;
         }
-        
-        
-
-        
 
         .botones-descarga a img{
             width:auto;
-            height:50px; /* Altura del botón imagen */
+            height:50px;
             cursor:pointer;
             transition:transform 0.3s;
             padding:0;
@@ -101,14 +96,32 @@
             transform:scale(1.1);
         }
 
-        .btn{display:inline-block;background:#1e3c72;color:white;padding:14px 32px;border-radius:50px;text-decoration:none;font-weight:600;margin:12px 6px;transition:0.3s;}
-        .btn:hover{background:#ffd700;color:#1e3c72;transform:scale(1.07);}
-        .btn-whatsapp{background:#25D366;}
-        .btn-whatsapp:hover{background:#128C7E;}
-        .btn-grande{font-size:1.5rem;padding:20px 60px;}
-        .btn-suscribir{background:#e67e22;}
-        .btn-suscribir:hover{background:#d35400;}
-        /* .testimonio{background:linear-gradient(135deg,#fffbe6,#fff);} */
+        /* BOTONES IMAGEN PARA SECCIONES */
+        .btn-imagen{
+            display:inline-block;
+            margin:12px 6px;
+            transition:transform 0.3s;
+        }
+
+        .btn-imagen img{
+            height:auto;
+            max-width:100%;
+            cursor:pointer;
+            transition:transform 0.3s;
+        }
+
+        .btn-imagen:hover img{
+            transform:scale(1.05);
+        }
+
+        /* Tamaños específicos para botones de sección */
+        .btn-imagen.btn-grande img{
+            max-width:50px;
+        }
+
+        .btn-imagen.btn-normal img{
+            max-width:50px;
+        }
 
         .testimonio{background:rgb(255, 255, 255);}
         .logo-final{width:100%;max-width:650px;margin:30px auto;display:block;}
@@ -172,7 +185,7 @@
             header p.versiculo{font-size:1.25rem;}
             .grid-libros{grid-template-columns:1fr;}
             .grid-estudios{grid-template-columns:1fr;}
-            .libro-card img{height:380px;} /* Ajuste para móviles */
+            .libro-card img{height:380px;}
             .estudio-grupo-card{
                 aspect-ratio: 0.7;
             }
@@ -183,52 +196,69 @@
                 width:50px;
                 height:50px;
             }
+            /* Botones más pequeños en móviles */
+            .btn-imagen.btn-grande img{
+                max-width:280px;
+            }
+            .btn-imagen.btn-normal img{
+                max-width:200px;
+            }
         }
 
-        /* BOTÓN MENÚ */
+        /* BOTÓN MENÚ CON IMAGEN */
         #menu-btn {
             position: fixed;
             top: 20px;
             right: 20px;
             z-index: 1001;
-            background: rgba(255, 215, 0, 0.9);
-            color: #1f3c88;
+            background: transparent;
             border: none;
-            padding: 12px 18px;
-            border-radius: 30px;
-            font-size: 16px;
-            font-weight: bold;
+            padding: 0;
             cursor: pointer;
         }
 
-        /* PANEL MENÚ */
+        #menu-btn img{
+            width: auto;
+            height: 50px;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        #menu-btn:hover img{
+            transform: scale(1.1);
+        }
+
+        
+        /* PANEL MENÚ  */
         #menu-panel {
             position: fixed;
-            top: 70px;
+            top: 80px;
             right: 20px;
             background: rgba(31, 60, 136, 0.95);
             border-radius: 15px;
-            padding: 15px;
+            padding: 10px;
             display: none;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px; /* Reducido de 10px a 8px */
             z-index: 1000;
         }
 
-        /* LINKS DEL MENÚ */
+        /* BOTONESS DEL MENÚ */
         #menu-panel a {
             color: white;
             text-decoration: none;
             font-weight: bold;
-            padding: 10px 15px;
-            border-radius: 20px;
+            padding: 4px 7px;   /* 4xp (Reduce o amplia borde vertical) 7px (Reduce o amplia el borde horizontal) */
+            border-radius: 8px; /* Cambiado de 20px a 8px para esquinas levemente redondeadas */
             background: rgba(255, 255, 255, 0.15);
             text-align: center;
+            transition: background 0.3s, transform 0.2s;
         }
 
         #menu-panel a:hover {
             background: rgba(255, 215, 0, 0.8);
             color: #1f3c88;
+            transform: translateX(-3px);
         }
     </style>
 
@@ -243,7 +273,10 @@
 </head>
 
 <body>
-    <button id="menu-btn">☰ Menú</button>
+    <!-- BOTÓN MENÚ - AHORA CON IMAGEN -->
+    <button id="menu-btn">
+        <img src="img/boton_menu.png" alt="Menú">
+    </button>
 
     <nav id="menu-panel">
         <a href="#inicio">Inicio</a>
@@ -332,7 +365,7 @@
     </section>
 
     <!-- ESTUDIOS BÍBLICOS -->
-    <section id="estudios">
+    <section id="estudios" style="text-align:center; padding:20px 20px;">
         <h2>Estudios Bíblicos Cristianos</h2>
         <p style="text-align:center;font-size:1.2rem;margin-bottom:20px;">
             <h3>Explora los estudios bíblicos organizados por temas. Cada grupo contiene estudios profundos y prácticos para crecer en la fe y la vida cristiana que Dios quiere.</h3>
@@ -377,60 +410,63 @@
     </section>
 
     <!-- TESTIMONIO -->
-    <section class="testimonio" id="testimonio">
+    <section class="testimonio" id="testimonio" style="text-align:center; padding:20px 20px;">
         <h2>Mi Testimonio Personal</h2>
-        <p><strong>Hola a todos, Dios les bendiga con su poderosa presencia!!</strong></p>
-        <p>Mi nombre es Antonio Gabriel Guardia, soy pastor cristiano, nacido en Argentina en 1967 en la provincia de Mendoza…</p>
-        <br>
-        <a href="https://drive.google.com/file/d/1kZsXL8oqUXDJrC2wrp7SnMFATZBVr57c/view?usp=sharing" target="_blank" class="btn">Descargar testimonio completo en PDF</a>
+        <h3>Lee o descarga el PDF con mi testimonio personal haciendo click en el botón de abajo.</h3>
+
+        <!-- BOTÓN IMAGEN TESTIMONIO -->
+        <a href="https://drive.google.com/file/d/1kZsXL8oqUXDJrC2wrp7SnMFATZBVr57c/view?usp=sharing" target="_blank" class="btn-imagen btn-normal" title="Descargar Testimonio completo en PDF">
+            <img src="img/boton_testimonio.png" alt="Descargar testimonio completo">
+        </a>
     </section>
 
     <!-- SUSCRIPCIÓN A NOVEDADES -->
-    <section style="background:rgb(255, 255, 255); padding:50px 20px; text-align:center;" id="suscripcion">
-        <h2 style="color:#1e3c72; font-size:2rem;">¡SUSCRIBIRME A LAS NOVEDADES DEL MINISTERIO!</h2>
-        <p style="font-size:1.3rem; max-width:900px; margin:20px auto;">
-            Te avisaré cuando suba libros nuevos, cursos, cambios o palabras de bendición.
-            Tus datos solo serán usados para comunicarte cualquier novedad importante.<br>
-        </p>
-        <a href="https://forms.gle/nUpWJ9CCeHetSsxbA" target="_blank" class="btn btn-grande btn-suscribir">
-            SÍ, QUIERO RECIBIR LAS NOVEDADES
+    <section style="background:rgb(255, 255, 255); padding:20px 20px; text-align:center;" id="suscripcion">
+
+        <!-- <h2 style="color:#1e3c72; font-size:2rem;">¡SUSCRIBIRME A LAS NOVEDADES DEL MINISTERIO!</h2> -->
+        <h2 style="color:#1e3c72;">¡Suscribirme a las Novedades del Ministerio!</h2>
+        <h3>Te avisaré cuando suba Libros o Estudios nuevos, cursos, cambios o palabras de bendición. Tus datos solo serán usados para comunicarte cualquier novedad importante.</h3>
+
+        <!-- BOTÓN IMAGEN SUSCRIPCIÓN -->
+        <a href="https://forms.gle/nUpWJ9CCeHetSsxbA" target="_blank" class="btn-imagen btn-grande"title="Suscríbete aquí para recebir las novedades de nuevos materiales disponibles.">
+            <img src="img/boton_suscripcion_novedades.png" alt="Sí, quiero recibir las novedades">
         </a>
-        <p style="margin-top:30px; font-style:italic; color:#1e3c72;">
+
+        <p style="margin-top:10px; font-style:italic; font-weight:bold; color:#1e3c72;">
             «…para que todos sean uno… y sean perfectos en unidad» – Juan 17:21-23
         </p>
     </section>
 
     <!-- CONTACTO -->
-    <section style="background:rgb(255, 255, 255); text-align:center;" id="contacto">
+    <section style="background:rgb(255, 255, 255); padding:20px 20px; text-align:center;" id="contacto">
         <h2>Contacto</h2>
+        <h3>Envíame un mensaje por WhatsApp o un correo electrónico si deseas contactarme.</h3>
         
+        <!-- BOTÓN IMAGEN WHATSAPP -->
         <a href="javascript:void(0)" 
         onclick="window.open('https://wa.me/5492615100935','_blank')" 
-        class="btn btn-whatsapp">
-        WhatsApp
+        class="btn-imagen btn-normal">
+            <img src="img/boton_contacto_whatsapp.png" alt="WhatsApp" title="Enviar MS por WhatsApp.">
         </a>
         
+        <!-- BOTÓN IMAGEN CORREO -->
         <a href="javascript:void(0)" 
         onclick="window.location.href='mailto:pastorgabrielguardia@gmail.com'" 
-        class="btn">
-        Enviar correo electrónico
+        class="btn-imagen btn-normal">
+            <img src="img/boton_contacto_correo.png" alt="Enviar correo electrónico" title="Enviar MS por Correo Electrónico.">
         </a>
     </section>
 
     <!-- SECCIÓN PARA DONACIONES -->
-    <section style="background:rgb(255, 255, 255); padding:40px; text-align:center;" id="donar">
+    <section style="background: rgb(255, 255, 255); padding:20px 20px; text-align:center;" id="donar">
         <h2 style="color:#1e3c72;">¿Querés bendecir este ministerio?</h2>
-        <p style="font-size:1.2rem; max-width:700px; margin:20px auto;">
-            Si el Señor pone en tu corazón colaborar con este ministerio 100% gratuito, 
-            escribime por WhatsApp y con gusto te paso los datos para una transferencia o giro. 
-            Toda ofrenda es voluntaria y será usada exclusivamente para seguir sembrando la Palabra.
-        </p>
+        <h3>Si el Señor pone en tu corazón colaborar con este ministerio 100% gratuito, escribime por WhatsApp y con gusto te paso los datos para una transferencia o giro.</h3>
 
+        <!-- BOTÓN IMAGEN DONAR -->
         <a href="javascript:void(0)" 
         onclick="window.open('https://wa.me/5492615100935?text=Pastor%20Antonio%2C%20quiero%20bendecir%20el%20ministerio','_blank')" 
-        class="btn btn-whatsapp" 
-        style="font-size:1.4rem; padding:18px 50px;">
-        ❤️ Escribime por WhatsApp
+        class="btn-imagen btn-normal">
+            <img src="img/boton_donar.png" alt="WhatsApp" title="Enviar MS por WhatsApp.">
         </a>
 
         <p style="margin-top:25px; background:#fff8e1; border:3px solid #ffd700; border-radius:15px; padding:22px; max-width:900px; margin:30px auto; font-size:1.25rem; font-weight:bold; color:#1e3c72; box-shadow:0 6px 18px rgba(255,215,0,0.25); line-height:1.6;">
@@ -438,7 +474,7 @@
             <em style="font-size:1.1rem; color:#1e3c72;">2 Corintios 9:7</em>
         </p>
 
-        <img src="img/Perfectos en Unidad.png" alt="Logo Ministerio" class="logo-final">
+        <img src="img/Perfectos en Unidad.png" alt="Logo Ministerio" title="Quiero hacer una donación o Enviar una ofrenda." class="logo-final">
     </section>
 </div>
 
